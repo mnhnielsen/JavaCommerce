@@ -110,3 +110,14 @@ services:
     depends_on:
       "broker":
         condition: service_healthy
+        
+  redisBasket:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: [ "CMD", "nc", "-vz", "localhost", "6379" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5

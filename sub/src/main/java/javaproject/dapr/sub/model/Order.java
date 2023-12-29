@@ -7,4 +7,11 @@ import lombok.Setter;
 @Setter
 public class Order {
     private int orderId;
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                '}';
+    }
 }
